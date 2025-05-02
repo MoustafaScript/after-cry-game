@@ -8,6 +8,17 @@
 #include <vector>
 #include <random>
 
+void  enableANSI() {
+	HANDLE h0out = GetStdHandle(STD_OUTPUT_HANDLE);
+	DWORD dwMode = 0;
+	GetConsoleMode(h0out, &dwMode);
+	dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+	SetConsoleMode(h0out, dwMode);
+
+
+
+
+}
 void gameinfo() {
 	//clear screem
 	for (int i = 0; i < 20; i++) {
@@ -33,7 +44,7 @@ void gameinfo() {
 	std::cout << "information\n";
 	std::cout << "credit by moustafa380\n";
 	std::cout << " \n";
-	std::cout << "version of game: beta 0.1\n";
+	std::cout << "version of game: beta 0.2\n";
 	std::cout << " \n";
 	std::cout << "team developers";
 	std::cout << "don't think someyhing wrong on me but for now no team\n";
@@ -180,6 +191,7 @@ void startgame() {
 	}
 }
 int main() {
+	enableANSI();
 	int co2 = 0;
 	std::cout <<  "\033[33m" << "this game can make files" << "\033[0m" << std::endl;
 	std::cout << "do you want contiune?\n";
